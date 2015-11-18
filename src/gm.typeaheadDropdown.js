@@ -23,6 +23,12 @@ angular.module('gm.typeaheadDropdown', ['gm.typeaheadDropdown.tpl', 'ui.bootstra
 			$scope.onSelect = function($item, $model, $label) {
 				angular.extend($scope.model, $item);
 				$scope.model[$scope.config.modelLabel] = $item[$scope.config.optionLabel];
+			};
+			
+			$scope.onKeyup = function(event) {
+				if (event.keyCode == 40) {
+					$('#options_dropdown').trigger('click.bs.dropdown');
+				}
 			}
 		}]
 	}
